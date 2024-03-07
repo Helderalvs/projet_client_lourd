@@ -27,8 +27,8 @@ public class Controleur {
 		Modele.insertEtudiant(unEtudiant);
 	}
 
-	public static ArrayList<Materiel> selectAllMateriel(String filtre){
-		return Modele.selectAllMateriel(filtre);
+	public static ArrayList<Materiel> selectAllMateriel(String filtre, String role){
+		return Modele.selectAllMateriel(filtre, role);
 	}
 
 	public static void deleteMateriel (int id_materiel){
@@ -39,7 +39,7 @@ public class Controleur {
 		Modele.updateMateriel(unMateriel);
 	}
 
-	public static Materiel selectWhereClasse(String nom, String marque, float prix_loca, int stock_initial, String etat_materiel, String role) {
+	public static Materiel selectWhereMateriel(String nom, String marque, float prix_loca, int stock_initial, String etat_materiel, String role) {
 		return Modele.selectWhereMateriel(nom,marque, prix_loca,stock_initial,etat_materiel,role);
 	}
 

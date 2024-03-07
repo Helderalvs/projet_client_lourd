@@ -33,13 +33,13 @@ public class VueGenerale extends JFrame implements ActionListener{
 		
 		this.setTitle("Application Admin Scolarité IRIS");
 		this.setResizable(false);
-		this.setBounds(100, 100, 900, 600);
+		this.setBounds(100, 100, 1200, 600);
 		this.getContentPane().setBackground(Color.gray);
 		this.setLayout(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//construction du panel Menu 
-		this.panelMenu.setBounds(50, 10, 800, 30);
+		this.panelMenu.setBounds(50, 10, 1100, 30);
 		this.panelMenu.setBackground(Color.gray);
 		this.panelMenu.setLayout(new GridLayout(1, 6));
 		this.panelMenu.add(this.btProfil);

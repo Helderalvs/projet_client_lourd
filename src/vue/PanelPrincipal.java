@@ -17,7 +17,7 @@ public class PanelPrincipal extends JPanel
 		this.add(this.lbTitre);
 		
 		this.setLayout(null);
-		this.setBounds(10, 100, 860, 560);
+		this.setBounds(10, 100, 1160, 560);
 
 		this.setVisible(false);
 				
