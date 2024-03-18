@@ -199,27 +199,6 @@ public class Modele {
 			exp.printStackTrace();
 		} return lesMateriel;
 	}
-	public static void insertEtudiant(Etudiant unEtudiant) {
-		String requete = "insert into Etudiant values(null, '"
-				+ unEtudiant.getNom()+"',' "
-				+ unEtudiant.getPrenom()+"','"
-				+ unEtudiant.getEmail()+"','"
-				+ unEtudiant.getDateNais()+"','"
-				+ unEtudiant.getIdclasse()+"' ) ;";
-		try {
-			uneBDD.seConnecter();
-			Statement unStat = uneBDD.getMaConnexion().createStatement();
-
-			unStat.execute(requete);
-
-			unStat.close();
-			uneBDD.seDeConnecter();
-		}
-		catch (SQLException exp)
-		{
-			System.out.println("Erreur de requete : " + requete );
-		}
-	}
 
 	public static Materiel selectWhereMateriel(String nom, String marque, float prix_loca, int stock_initial, String etat_materiel, String role) {
 		Materiel unMateriel = null;

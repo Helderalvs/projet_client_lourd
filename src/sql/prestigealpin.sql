@@ -241,3 +241,5 @@ INSERT INTO cours (nom_cours, descripion_cours, niveaut_difficulte, date_heure, 
 ('Cours de Télémark', 'Apprenez l''art du télémark avec ce cours spécialisé.', 'Moyen', '2024-04-15', '13:45:00', 33.25, 4),
 ('Cours de Freeride', 'Un cours pour les amateurs de hors-piste et de descentes sauvages.', 'Difficile', '2024-05-01', '15:30:00', 37.50, 3),
 ('Cours de Ski Alpinisme', 'Découvrez l''alpinisme sur skis avec ce cours aventureux.', 'Difficile', '2024-05-10', '18:00:00', 50.00, 2);
+
+

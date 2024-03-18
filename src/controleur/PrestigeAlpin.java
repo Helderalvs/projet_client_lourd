@@ -3,7 +3,7 @@ package controleur;
 import vue.VueConnexion;
 import vue.VueGenerale;
 
-public class IrisEvent {
+public class PrestigeAlpin {
 	
 	private static VueConnexion uneVueConnexion; 
 	private static VueGenerale uneVueGenerale ; 

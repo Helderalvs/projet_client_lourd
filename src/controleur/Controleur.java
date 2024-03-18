@@ -15,28 +15,12 @@ public class Controleur {
 		Modele.updateUser(unUser);
 	}
 
-    public static void insertMateriel(Materiel unMateriel) {
-		Modele.insertMateriel(unMateriel);
-    }
-
-    public static void insertProfesseur(Professeur unProfesseur) {
-		Modele.insertProfesseur(unProfesseur);
-    }
-
-	public static void insertEtudiant(Etudiant unEtudiant) {
-		Modele.insertEtudiant(unEtudiant);
-	}
-
 	public static ArrayList<Materiel> selectAllMateriel(String filtre, String role){
 		return Modele.selectAllMateriel(filtre, role);
 	}
 
 	public static void deleteMateriel (int id_materiel){
 		Modele.deleteMateriel(id_materiel);
-	}
-
-	public static void updateMateriel (Materiel unMateriel){
-		Modele.updateMateriel(unMateriel);
 	}
 
 	public static Materiel selectWhereMateriel(String nom, String marque, float prix_loca, int stock_initial, String etat_materiel, String role) {

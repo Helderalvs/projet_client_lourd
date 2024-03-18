@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import controleur.IrisEvent;
+import controleur.PrestigeAlpin;
 import controleur.User;
 
 public class VueGenerale extends JFrame implements ActionListener{
@@ -17,7 +17,6 @@ public class VueGenerale extends JFrame implements ActionListener{
 	private JButton btMateriel = new JButton("Materiel");
 	private JButton btCours = new JButton("Cours");
 	private JButton btReservation = new JButton("Reservation");
-	private JButton btEnseignements = new JButton("Enseignements"); 
 	private JButton btQuitter = new JButton("Quitter"); 
 	
 	//Les panels d'administration 
@@ -27,13 +26,12 @@ public class VueGenerale extends JFrame implements ActionListener{
 	private PanelCours unPanelCours= new PanelCours();
 
 	private PanelReservation unPanelReservation = new PanelReservation();
-	private PanelEnseignement unPanelEnseignement= new PanelEnseignement(); 
 	
 	public   VueGenerale ( User unUser) {
 		
 		unPanelProfil = new PanelProfil(unUser);
 		
-		this.setTitle("Application Admin Scolarité IRIS");
+		this.setTitle("Prestige Alpin");
 		this.setResizable(false);
 		this.setBounds(100, 100, 1200, 600);
 		this.getContentPane().setBackground(Color.gray);
@@ -48,7 +46,6 @@ public class VueGenerale extends JFrame implements ActionListener{
 		this.panelMenu.add(this.btMateriel);
 		this.panelMenu.add(this.btCours);
 		this.panelMenu.add(this.btReservation);
-		this.panelMenu.add(this.btEnseignements); 
 		this.panelMenu.add(this.btQuitter); 
 		this.add(this.panelMenu); 
 		
@@ -57,7 +54,6 @@ public class VueGenerale extends JFrame implements ActionListener{
 		this.btMateriel.addActionListener(this);
 		this.btCours.addActionListener(this);
 		this.btReservation.addActionListener(this);
-		this.btEnseignements.addActionListener(this);
 		this.btQuitter.addActionListener(this);
 		
 		//ajout les panels dans la vue 
@@ -65,7 +61,6 @@ public class VueGenerale extends JFrame implements ActionListener{
 		this.add(this.unPanelMateriel);
 		this.add(this.unPanelCours);
 		this.add(this.unPanelReservation);
-		this.add(this.unPanelEnseignement); 
 		
 		
 		this.setVisible(true);
@@ -75,20 +70,19 @@ public class VueGenerale extends JFrame implements ActionListener{
 		this.unPanelMateriel.setVisible(false);
 		this.unPanelCours.setVisible(false);
 		this.unPanelReservation.setVisible(false);
-		this.unPanelEnseignement.setVisible(false);
+
 		switch (choix) {
 		case 1 : this.unPanelProfil.setVisible(true);break;
 		case 2 : this.unPanelMateriel.setVisible(true);break;
 		case 3 : this.unPanelCours.setVisible(true);break;
 		case 4 : this.unPanelReservation.setVisible(true);break;
-		case 5 : this.unPanelEnseignement.setVisible(true);break;
 		}
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		 if (e.getSource() == this.btQuitter) {
-			 IrisEvent.rendreVisibleVueGenerale(false, null);
-			 IrisEvent.rendreVisibleVueConnexion(true);
+			 PrestigeAlpin.rendreVisibleVueGenerale(false, null);
+			 PrestigeAlpin.rendreVisibleVueConnexion(true);
 		 }
 		 else if (e.getSource() == this.btProfil) {
 			 this.afficherPanel(1);
@@ -101,9 +95,6 @@ public class VueGenerale extends JFrame implements ActionListener{
 		 }
 		 else if (e.getSource() == this.btReservation) {
 			 this.afficherPanel(4);
-		 }
-		 else if (e.getSource() == this.btEnseignements) {
-			 this.afficherPanel(5);
 		 }
 		
 	}

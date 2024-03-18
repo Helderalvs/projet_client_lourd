@@ -10,7 +10,7 @@ import java.awt.event.KeyListener;
 import javax.swing.*;
 
 import controleur.Controleur;
-import controleur.IrisEvent;
+import controleur.PrestigeAlpin;
 import controleur.User;
 
 public class VueConnexion extends JFrame implements ActionListener, KeyListener
@@ -22,7 +22,7 @@ public class VueConnexion extends JFrame implements ActionListener, KeyListener
 	private JButton btSeConnecter = new JButton("Se Connecter"); 
 	
 	public VueConnexion() {
-		this.setTitle("Application Admin Scolarité IRIS");
+		this.setTitle("Prestige Alpin");
 		this.setResizable(false);
 		this.setBounds(100, 100, 600, 300);
 		this.getContentPane().setBackground(Color.gray);
@@ -30,7 +30,7 @@ public class VueConnexion extends JFrame implements ActionListener, KeyListener
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//placement du logo 
-		ImageIcon uneImage = new ImageIcon("src/images/logo.png"); 
+		ImageIcon uneImage = new ImageIcon("src/images/Logo_prestigeAlpin2.png");
 		JLabel leLogo = new JLabel(uneImage); 
 		leLogo.setBounds(20, 20,240, 240);
 		this.add(leLogo); 
@@ -84,8 +84,8 @@ public class VueConnexion extends JFrame implements ActionListener, KeyListener
 					 "Bienvenue "+unUser.getNom()
 					 +"  "+unUser.getPrenom()); 
 			 //on ouvre la vue générale 
-			 IrisEvent.rendreVisibleVueConnexion(false);
-			 IrisEvent.rendreVisibleVueGenerale(true, unUser);
+			 PrestigeAlpin.rendreVisibleVueConnexion(false);
+			 PrestigeAlpin.rendreVisibleVueGenerale(true, unUser);
 		 }
 	}
 	
