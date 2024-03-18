@@ -14,17 +14,19 @@ public class VueGenerale extends JFrame implements ActionListener{
 
 	private JPanel panelMenu = new JPanel(); 
 	private JButton btProfil = new JButton("Profil");
-	private JButton btClasses= new JButton("Materiel");
-	private JButton btProfesseurs = new JButton("Professeurs"); 
-	private JButton btEtudiants = new JButton("Etudiants"); 
+	private JButton btMateriel = new JButton("Materiel");
+	private JButton btCours = new JButton("Cours");
+	private JButton btReservation = new JButton("Reservation");
 	private JButton btEnseignements = new JButton("Enseignements"); 
 	private JButton btQuitter = new JButton("Quitter"); 
 	
 	//Les panels d'administration 
 	private PanelProfil unPanelProfil ; 
-	private PanelClasse unPanelClasse= new PanelClasse();
-	private PanelProfesseur unPanelProfesseur= new PanelProfesseur(); 
-	private PanelEtudiant unPanelEtudiant = new PanelEtudiant(); 
+	private PanelMateriel unPanelMateriel = new PanelMateriel();
+
+	private PanelCours unPanelCours= new PanelCours();
+
+	private PanelReservation unPanelReservation = new PanelReservation();
 	private PanelEnseignement unPanelEnseignement= new PanelEnseignement(); 
 	
 	public   VueGenerale ( User unUser) {
@@ -43,26 +45,26 @@ public class VueGenerale extends JFrame implements ActionListener{
 		this.panelMenu.setBackground(Color.gray);
 		this.panelMenu.setLayout(new GridLayout(1, 6));
 		this.panelMenu.add(this.btProfil);
-		this.panelMenu.add(this.btClasses); 
-		this.panelMenu.add(this.btProfesseurs); 
-		this.panelMenu.add(this.btEtudiants);
+		this.panelMenu.add(this.btMateriel);
+		this.panelMenu.add(this.btCours);
+		this.panelMenu.add(this.btReservation);
 		this.panelMenu.add(this.btEnseignements); 
 		this.panelMenu.add(this.btQuitter); 
 		this.add(this.panelMenu); 
 		
 		//rendre les boutons ecoutables 
 		this.btProfil.addActionListener(this);
-		this.btClasses.addActionListener(this);
-		this.btProfesseurs.addActionListener(this);
-		this.btEtudiants.addActionListener(this);
+		this.btMateriel.addActionListener(this);
+		this.btCours.addActionListener(this);
+		this.btReservation.addActionListener(this);
 		this.btEnseignements.addActionListener(this);
 		this.btQuitter.addActionListener(this);
 		
 		//ajout les panels dans la vue 
 		this.add(this.unPanelProfil); 
-		this.add(this.unPanelClasse); 
-		this.add(this.unPanelProfesseur); 
-		this.add(this.unPanelEtudiant); 
+		this.add(this.unPanelMateriel);
+		this.add(this.unPanelCours);
+		this.add(this.unPanelReservation);
 		this.add(this.unPanelEnseignement); 
 		
 		
@@ -70,15 +72,15 @@ public class VueGenerale extends JFrame implements ActionListener{
 	}
 	public void afficherPanel (int choix) {
 		this.unPanelProfil.setVisible(false);
-		this.unPanelClasse.setVisible(false);
-		this.unPanelProfesseur.setVisible(false);
-		this.unPanelEtudiant.setVisible(false);
+		this.unPanelMateriel.setVisible(false);
+		this.unPanelCours.setVisible(false);
+		this.unPanelReservation.setVisible(false);
 		this.unPanelEnseignement.setVisible(false);
 		switch (choix) {
 		case 1 : this.unPanelProfil.setVisible(true);break;
-		case 2 : this.unPanelClasse.setVisible(true);break;
-		case 3 : this.unPanelProfesseur.setVisible(true);break;
-		case 4 : this.unPanelEtudiant.setVisible(true);break;
+		case 2 : this.unPanelMateriel.setVisible(true);break;
+		case 3 : this.unPanelCours.setVisible(true);break;
+		case 4 : this.unPanelReservation.setVisible(true);break;
 		case 5 : this.unPanelEnseignement.setVisible(true);break;
 		}
 	}
@@ -91,13 +93,13 @@ public class VueGenerale extends JFrame implements ActionListener{
 		 else if (e.getSource() == this.btProfil) {
 			 this.afficherPanel(1);
 		 }
-		 else if (e.getSource() == this.btClasses) {
+		 else if (e.getSource() == this.btMateriel) {
 			 this.afficherPanel(2);
 		 }
-		 else if (e.getSource() == this.btProfesseurs) {
+		 else if (e.getSource() == this.btCours) {
 			 this.afficherPanel(3);
 		 }
-		 else if (e.getSource() == this.btEtudiants) {
+		 else if (e.getSource() == this.btReservation) {
 			 this.afficherPanel(4);
 		 }
 		 else if (e.getSource() == this.btEnseignements) {

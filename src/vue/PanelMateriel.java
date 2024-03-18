@@ -10,7 +10,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
-public class PanelClasse extends PanelPrincipal implements ActionListener {
+public class PanelMateriel extends PanelPrincipal implements ActionListener {
 
 	private JTextField txtNom = new JTextField();
 	private JTextField txtMarque = new JTextField();
@@ -64,7 +64,7 @@ public class PanelClasse extends PanelPrincipal implements ActionListener {
 	private JPanel panelMat_rando = new JPanel();
 
 	private int nb = 0;
-	public PanelClasse() {
+	public PanelMateriel() {
 		super("Gestion des classes");
 		{
 			//construire le pannel formulaire : saisie de la classe.

@@ -24,7 +24,7 @@ public class Tableau extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int ligne, int colonne) {
-        return this.donnes [ligne] [colonne];
+        return this.donnes[ligne][colonne];
     }
 
     @Override
