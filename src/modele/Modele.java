@@ -117,27 +117,6 @@ public class Modele {
 			System.out.println("Erreur de requete : " + requete );
 		}
 	}
-
-    public static void insertProfesseur(Professeur unProfesseur) {
-		String requete = "insert into Professeur values(null, '"
-				+ unProfesseur.getNom()+"',' "
-				+ unProfesseur.getPrenom()+"','"
-				+ unProfesseur.getEmail()+"','"
-				+ unProfesseur.getDiplome()+"' ) ;";
-		try {
-			uneBDD.seConnecter();
-			Statement unStat = uneBDD.getMaConnexion().createStatement();
-
-			unStat.execute(requete);
-
-			unStat.close();
-			uneBDD.seDeConnecter();
-		}
-		catch (SQLException exp)
-		{
-			System.out.println("Erreur de requete : " + requete );
-		}
-	}
 	public static ArrayList<Materiel> selectAllMateriel (String filtre, String role) {
 		String requete = "";
 
@@ -147,7 +126,7 @@ public class Modele {
 			requete = "select * from "+role+" where nom like '%"
 					+ filtre +"%' or marque like '%" + filtre
 					+ filtre +"%' or prix_loca like '%" + filtre
-					+ filtre +"%' or stock_materiel like '%" + filtre
+					+ filtre +"%' or stock_initial like '%" + filtre
 					+ filtre +"%' or etat_materiel like '%" + filtre
 					+"%' or role = '%" + filtre +"%' ;";
 		}
@@ -215,7 +194,8 @@ public class Modele {
 						desRes.getFloat("prix_loca"),
 						desRes.getInt("stock_initial"),
 						desRes.getString("etat_materiel"),
-						desRes.getString("role"));
+						desRes.getString("role")
+				);
 			}
 			unStat.close();
 			uneBDD.seDeConnecter();
@@ -227,7 +207,7 @@ public class Modele {
 	}
 
 	public static void insertMat_neige(Mat_neige unMateriel) {
-		String requete = "INSERT INTO mat_neige (nom, marque, prix_loca, stock_initial, etat_materiel, longeur_skis, type_fixation, niveau_usure, type_ski, role) VALUES ('"
+		String requete = "INSERT INTO mat_neige (nom, marque, prix_loca, stock_initial,etat_materiel, longeur_skis, type_fixation, niveau_usure, type_ski, role,tranche_age) VALUES ('"
 				+ unMateriel.getNom() + "', '"
 				+ unMateriel.getMarque() + "', "
 				+ unMateriel.getPrix_loca() + ", "
@@ -237,7 +217,7 @@ public class Modele {
 				+ unMateriel.getType_fixation() + "', '"
 				+ unMateriel.getNiveau_usure() + "', '"
 				+ unMateriel.getType_ski() + "', '"
-				+ unMateriel.getRole() + "')";
+				+ unMateriel.getRole() + "', '";
 		try {
 			uneBDD.seConnecter();
 			Statement unStat = uneBDD.getMaConnexion().createStatement();
@@ -265,7 +245,7 @@ public class Modele {
 				+ unMateriel.getPoids_max() + "', '"
 				+ unMateriel.getType_ancrage() + "', '"
 				+ unMateriel.getNiveau_regidite() + "', '"
-				+ unMateriel.getRole() + "')";
+				+ unMateriel.getRole() + "', '";
 		try {
 			uneBDD.seConnecter();
 			Statement unStat = uneBDD.getMaConnexion().createStatement();
@@ -339,7 +319,7 @@ public class Modele {
 			while (desRes.next()) {
 				Cours unCours = new Cours(desRes.getInt("id_cours"), desRes.getString("nom_cours"),
 						desRes.getString("description_cours"), desRes.getString("niveau_difficulte"),
-						desRes.getString("date_heure"), desRes.getString("duree_cours"), desRes.getInt("prix_cours"),
+						desRes.getString("date_cours"), desRes.getString("duree_cours"), desRes.getInt("prix_cours"),
 						desRes.getInt("nb_personne"));
 				lesCours.add(unCours);
 			}

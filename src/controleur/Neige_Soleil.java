@@ -3,7 +3,7 @@ package controleur;
 import vue.VueConnexion;
 import vue.VueGenerale;
 
-public class PrestigeAlpin {
+public class Neige_Soleil {
 	
 	private static VueConnexion uneVueConnexion; 
 	private static VueGenerale uneVueGenerale ; 

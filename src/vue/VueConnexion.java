@@ -10,7 +10,7 @@ import java.awt.event.KeyListener;
 import javax.swing.*;
 
 import controleur.Controleur;
-import controleur.PrestigeAlpin;
+import controleur.Neige_Soleil;
 import controleur.User;
 
 public class VueConnexion extends JFrame implements ActionListener, KeyListener
@@ -22,7 +22,7 @@ public class VueConnexion extends JFrame implements ActionListener, KeyListener
 	private JButton btSeConnecter = new JButton("Se Connecter"); 
 	
 	public VueConnexion() {
-		this.setTitle("Prestige Alpin");
+		this.setTitle("Neige & Soleil");
 		this.setResizable(false);
 		this.setBounds(100, 100, 600, 300);
 		this.getContentPane().setBackground(Color.gray);
@@ -30,9 +30,9 @@ public class VueConnexion extends JFrame implements ActionListener, KeyListener
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//placement du logo 
-		ImageIcon uneImage = new ImageIcon("src/images/Logo_prestigeAlpin2.png");
+		ImageIcon uneImage = new ImageIcon("src/images/neige&soleil.jpg");
 		JLabel leLogo = new JLabel(uneImage); 
-		leLogo.setBounds(20, 20,240, 240);
+		leLogo.setBounds(20, 20,200, 190);
 		this.add(leLogo); 
 		
 		//construction du panel form 
@@ -84,8 +84,8 @@ public class VueConnexion extends JFrame implements ActionListener, KeyListener
 					 "Bienvenue "+unUser.getNom()
 					 +"  "+unUser.getPrenom()); 
 			 //on ouvre la vue générale 
-			 PrestigeAlpin.rendreVisibleVueConnexion(false);
-			 PrestigeAlpin.rendreVisibleVueGenerale(true, unUser);
+			 Neige_Soleil.rendreVisibleVueConnexion(false);
+			 Neige_Soleil.rendreVisibleVueGenerale(true, unUser);
 		 }
 	}
 	

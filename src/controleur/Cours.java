@@ -4,7 +4,7 @@ public class Cours {
 
     private int id_cours,nb_personne;
 
-    private String nom, description, niveau,date ,duree;
+    private String nom, description, niveau,date,duree;
 
     private float prix;
 

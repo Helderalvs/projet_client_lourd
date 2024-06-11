@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import controleur.PrestigeAlpin;
+import controleur.Neige_Soleil;
 import controleur.User;
 
 public class VueGenerale extends JFrame implements ActionListener{
@@ -31,7 +31,7 @@ public class VueGenerale extends JFrame implements ActionListener{
 		
 		unPanelProfil = new PanelProfil(unUser);
 		
-		this.setTitle("Prestige Alpin");
+		this.setTitle("Neige & Soleil");
 		this.setResizable(false);
 		this.setBounds(100, 100, 1200, 600);
 		this.getContentPane().setBackground(Color.gray);
@@ -81,8 +81,8 @@ public class VueGenerale extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		 if (e.getSource() == this.btQuitter) {
-			 PrestigeAlpin.rendreVisibleVueGenerale(false, null);
-			 PrestigeAlpin.rendreVisibleVueConnexion(true);
+			 Neige_Soleil.rendreVisibleVueGenerale(false, null);
+			 Neige_Soleil.rendreVisibleVueConnexion(true);
 		 }
 		 else if (e.getSource() == this.btProfil) {
 			 this.afficherPanel(1);

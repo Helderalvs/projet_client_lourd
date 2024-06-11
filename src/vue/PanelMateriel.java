@@ -16,8 +16,8 @@ public class PanelMateriel extends PanelPrincipal implements ActionListener {
 	private JTextField txtMarque = new JTextField();
 	private JTextField txtPrix = new JTextField();
 	private JTextField txtStock = new JTextField();
-	private JTextField txtEtat = new JTextField();
 
+	private static JComboBox<String> txtEtat = new JComboBox<String>();
 	private JButton btAnnuler = new JButton("Annuler");
 	private JButton btEnregistrer = new JButton("Enregister");
 
@@ -32,7 +32,6 @@ public class PanelMateriel extends PanelPrincipal implements ActionListener {
 	private JScrollPane uneScrollRando;
 
 	private Tableau unTableauRando;
-
 
 	private JPanel panelFiltre = new JPanel();
 	private JTextField txtFiltre = new JTextField();
@@ -61,7 +60,10 @@ public class PanelMateriel extends PanelPrincipal implements ActionListener {
 
 	private JPanel panelMat_neige = new JPanel();
 
+
 	private JPanel panelMat_rando = new JPanel();
+
+
 
 	private int nb = 0;
 	public PanelMateriel() {
@@ -70,7 +72,7 @@ public class PanelMateriel extends PanelPrincipal implements ActionListener {
 			//construire le pannel formulaire : saisie de la classe.
 			this.pannelFrom.setBounds(20,80,250,160);
 			this.pannelFrom.setBackground(Color.gray);
-			this.pannelFrom.setLayout(new GridLayout(6,2));
+			this.pannelFrom.setLayout(new GridLayout(8,2));
 			this.pannelFrom.add(new JLabel("Nom Materiel : "));
 			this.pannelFrom.add(this.txtNom);
 			this.pannelFrom.add(new JLabel(" Marque : "));
@@ -79,8 +81,16 @@ public class PanelMateriel extends PanelPrincipal implements ActionListener {
 			this.pannelFrom.add(this.txtPrix);
 			this.pannelFrom.add(new JLabel("Stock :"));
 			this.pannelFrom.add(this.txtStock);
+
+
+
+
 			this.pannelFrom.add(new JLabel("Etat_materiel :"));
 			this.pannelFrom.add(this.txtEtat);
+			this.txtEtat.addItem("Neuf");
+			this.txtEtat.addItem("Moyen");
+			this.txtEtat.addItem("Bien");
+			this.txtRole.addActionListener(this);
 
 
 
@@ -161,6 +171,7 @@ public class PanelMateriel extends PanelPrincipal implements ActionListener {
 			this.add(this.uneScrollRando);
 
 
+
 			// interdire l'ordre des colonnes
 			this.tableMaterielNeige.getTableHeader().setReorderingAllowed(false);
 			this.tableMaterielRando.getTableHeader().setReorderingAllowed(false);
@@ -213,6 +224,7 @@ public class PanelMateriel extends PanelPrincipal implements ActionListener {
 
 
 
+
 	public Object[][] obtenirDonnes(String filtre, String role) {
 		// transformer l'arrayList en une matrice []
 		ArrayList<Materiel> lesMateriel = Controleur.selectAllMateriel(filtre,role);
@@ -255,6 +267,7 @@ public class PanelMateriel extends PanelPrincipal implements ActionListener {
 		}
 	}
 
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == this.btAnnuler){
@@ -262,15 +275,28 @@ public class PanelMateriel extends PanelPrincipal implements ActionListener {
 			this.txtMarque.setText("");
 			this.txtPrix.setText("");
 			this.txtStock.setText("");
-			this.txtEtat.setText("");
 		} else if (e.getSource() == this.btEnregistrer) {
 			String nom = this.txtNom.getText();
 			String marque = this.txtMarque.getText();
 			float prix_loca = Float.parseFloat(this.txtPrix.getText());
 			int stock_initial = Integer.parseInt(this.txtStock.getText());
-			String etat_materiel = this.txtEtat.getText();
+			String etat_materiel = txtEtat.getSelectedItem().toString();
 
+			// Check if the price is greater than 0
+			if (prix_loca > 0) {
+				this.txtPrix.setBackground(Color.RED); // Set background color to red
+			}
+			/*
+			int age = 0;
 
+			if (trancheAge.equals("0-15ans")) {
+				age = 15;
+			} else if (trancheAge.equals("15-35")) {
+				age = 35;
+			} else if (trancheAge.equals("35-60")) {
+				age = 60;
+			}
+			 */
 			float longeur_skis=0,taille_harnais=0,poids_max=0;
 			String type_fixation="",niveau_usure="",type_ski="",type_corde="",type_ancrage="",niveau_regidite="";
 			String role = this.txtRole.getSelectedItem().toString();
@@ -329,7 +355,6 @@ public class PanelMateriel extends PanelPrincipal implements ActionListener {
 			this.txtMarque.setText("");
 			this.txtPrix.setText("");
 			this.txtStock.setText("");
-			this.txtEtat.setText("");
 		}
 		else if(e.getSource() == this.btFiltrer){
 			String filtre = this.txtFiltre.getText();

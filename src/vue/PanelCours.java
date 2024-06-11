@@ -22,7 +22,7 @@ public class PanelCours extends PanelPrincipal implements ActionListener{
 	private JTextField txtNom_cours = new  JTextField();
 	private JTextField txtDescription_cours = new  JTextField();
 	private JTextField txtNiveau_difficulte = new  JTextField();
-	private JTextField txtDate_heure = new  JTextField();
+	private JTextField txtDate_cours = new  JTextField();
 	private JTextField txtDuree_cours = new  JTextField();
 	private JTextField txtPrix_cours = new  JTextField();
 
@@ -58,8 +58,8 @@ public class PanelCours extends PanelPrincipal implements ActionListener{
 		this.panelForm.add(this.txtDescription_cours);
 		this.panelForm.add(new JLabel("Niveau :"));
 		this.panelForm.add(this.txtNiveau_difficulte);
-		this.panelForm.add(new JLabel("Date et heure :"));
-		this.panelForm.add(this.txtDate_heure);
+		this.panelForm.add(new JLabel("Date cours :"));
+		this.panelForm.add(this.txtDate_cours);
 		this.panelForm.add(new JLabel("Duree du cours :"));
 		this.panelForm.add(this.txtDuree_cours);
 		this.panelForm.add(new JLabel("prix du cours :"));
@@ -142,7 +142,7 @@ public class PanelCours extends PanelPrincipal implements ActionListener{
 						txtNom_cours.setText(unTableau.getValueAt(numLigne, 1).toString());
 						txtDescription_cours.setText(unTableau.getValueAt(numLigne, 2).toString());
 						txtNiveau_difficulte.setText(unTableau.getValueAt(numLigne, 3).toString());
-						txtDate_heure.setText(unTableau.getValueAt(numLigne, 4).toString());
+						txtDate_cours.setText(unTableau.getValueAt(numLigne, 4).toString());
 						txtDuree_cours.setText(unTableau.getValueAt(numLigne, 5).toString());
 						txtPrix_cours.setText(unTableau.getValueAt(numLigne, 6).toString());
 						txtNb_personne.setText(unTableau.getValueAt(numLigne, 7).toString());
@@ -183,7 +183,7 @@ public class PanelCours extends PanelPrincipal implements ActionListener{
 			this.txtNom_cours.setText("");
 			this.txtDescription_cours.setText("");
 			this.txtNiveau_difficulte.setText("");
-			this.txtDate_heure.setText("");
+			this.txtDate_cours.setText("");
 			this.txtDuree_cours.setText("");
 			this.txtPrix_cours.setText("");
 			this.txtNb_personne.setText("");
@@ -193,7 +193,7 @@ public class PanelCours extends PanelPrincipal implements ActionListener{
 			String nom = this.txtNom_cours.getText();
 			String description = this.txtDescription_cours.getText();
 			String niveau = this.txtNiveau_difficulte.getText();
-			String date = this.txtDate_heure.getText();
+			String date = this.txtDate_cours.getText();
 			String duree = this.txtDuree_cours.getText();
 			float prix = Float.parseFloat(this.txtPrix_cours.getText());
 			int nb_personne = Integer.parseInt(this.txtNb_personne.getText());
@@ -217,7 +217,7 @@ public class PanelCours extends PanelPrincipal implements ActionListener{
 			this.txtNom_cours.setText("");
 			this.txtDescription_cours.setText("");
 			this.txtNiveau_difficulte.setText("");
-			this.txtDate_heure.setText("");
+			this.txtDate_cours.setText("");
 			this.txtDuree_cours.setText("");
 			this.txtPrix_cours.setText("");
 			this.txtNb_personne.setText("");
@@ -239,7 +239,7 @@ public class PanelCours extends PanelPrincipal implements ActionListener{
 				String nom = this.txtNom_cours.getText();
 				String description = this.txtDescription_cours.getText();
 				String niveau = this.txtNiveau_difficulte.getText();
-				String date = this.txtDate_heure.getText();
+				String date = this.txtDate_cours.getText();
 				String duree = this.txtDuree_cours.getText();
 				float prix = Float.parseFloat(this.txtPrix_cours.getText());
 				int nb_personne = Integer.parseInt(this.txtNb_personne.getText());

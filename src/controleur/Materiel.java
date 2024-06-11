@@ -4,7 +4,7 @@ public class Materiel {
 	private int id_materiel;
 	private int stock_initial;
 	private float prix_loca;
-	private String nom, marque, etat_materiel,role ;
+	private String nom, marque, etat_materiel,role;
 
 	public Materiel(int id_materiel, String nom, String marque, float prix_loca, int stock_initial, String etat_materiel, String role) {
 		super();
@@ -27,6 +27,7 @@ public class Materiel {
 		this.etat_materiel = etat_materiel;
 		this.role = role;
 	}
+
 
 
 	public int getId_materiel() {
